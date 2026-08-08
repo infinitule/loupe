@@ -102,6 +102,39 @@ rather than period 2.
 
 ---
 
+## What is actually built
+
+<p align="center"><img src="assets/map.svg" alt="module map" width="100%"></p>
+
+Six files, 735 lines. **This picture is generated from the source** by
+[`Scripts/mkmap.py`](Scripts/mkmap.py), so it cannot drift from the code — the line
+numbers next to each symbol are real anchors, regenerated on every change.
+
+| file | role | lines | what it owns |
+|---|---|---:|---|
+| [`RPR.swift`](Sources/Loupe/RPR.swift) | periodicity core | 221 | Ramanujan sums, the filter bank, windowed signatures, attribution |
+| [`PGVR.swift`](Sources/Loupe/PGVR.swift) | the loop | 254 | ops per scale, ground, normalize, verify, compose |
+| [`Ollama.swift`](Sources/Loupe/Ollama.swift) | model transport | 58 | one schema-constrained tool call |
+| [`Loupe.swift`](Sources/Loupe/Loupe.swift) | public facade | 83 | `Loupe.run`, `Answer`, `LoupeError`, the refine retry |
+| [`main.swift`](Sources/LoupeCLI/main.swift) | command line | 36 | stdin → stdout, trace on stderr |
+| [`RPRTests.swift`](Tests/LoupeTests/RPRTests.swift) | validation gate | 83 | identities, selectivity, defect injection |
+
+**Read it in this order** — each file is understandable on its own:
+
+1. [`RPR.analyse`](Sources/Loupe/RPR.swift#L139) — text in, disrupted period out. No model involved.
+2. [`ground`](Sources/Loupe/PGVR.swift#L119) — the four lines that decide what the model sees.
+3. [`op(for:scale:)`](Sources/Loupe/PGVR.swift#L79) — how a period becomes a schema.
+4. [`verify`](Sources/Loupe/PGVR.swift#L166) — what gets rejected, and why.
+5. [`Loupe.run`](Sources/Loupe/Loupe.swift#L28) — the whole loop, twenty lines.
+
+Full symbol index with line anchors: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+```bash
+python3 Scripts/mkmap.py     # regenerates the map and the index from source
+```
+
+---
+
 ## Install
 
 Requires [Ollama](https://ollama.com) running locally.
