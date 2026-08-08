@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"><rect width="1000" height="300" rx="14" fill="#0B0F14"/>
+<text x="40" y="42" font-size="17" font-weight="600" fill="#E6EDF3">Why grounding is the whole game</text>
+<text x="40" y="64" font-size="12.5" fill="#8B949E">qwen3.5:0.8b, same defect, same schema — only the amount of context differs.</text>
+
+<rect x="40" y="96" width="720" height="46" rx="8" fill="#FF7B72" opacity="0.20"/>
+<rect x="40" y="96" width="720" height="46" rx="8" fill="none" stroke="#FF7B72"/>
+<text x="58" y="118" font-size="14" font-weight="600" fill="#E6EDF3">whole file (35 lines)</text>
+<text x="58" y="135" font-size="12" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" fill="#8B949E">193s · 3,434 tokens generated</text>
+<text x="742" y="126" font-size="14" font-weight="700" fill="#FF7B72" text-anchor="end">no answer</text>
+
+<rect x="40" y="166" width="116" height="46" rx="8" fill="#3FB950" opacity="0.22"/>
+<rect x="40" y="166" width="116" height="46" rx="8" fill="none" stroke="#3FB950"/>
+<text x="172" y="188" font-size="14" font-weight="600" fill="#E6EDF3">RPR span (10 lines)</text>
+<text x="172" y="205" font-size="12" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" fill="#8B949E">31s · 644 tokens</text>
+<text x="960" y="196" font-size="14" font-weight="700" fill="#3FB950" text-anchor="end">correct fix</text>
+
+<text x="40" y="256" font-size="12.5" fill="#8B949E">Given everything, the model runs away into an empty reasoning trace and never calls the tool.</text>
+<text x="40" y="276" font-size="12.5" fill="#8B949E">Given only what matters, it answers. Six times faster, and the difference between working and not.</text>
+</svg>
